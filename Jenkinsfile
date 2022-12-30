@@ -30,8 +30,8 @@ pipeline{
         {
             steps{
                 script{
-		withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerpass')]) {
-    		sh 'docker login -u hoanglap93@gmail.com -p ${dockerpass}'
+	withCredentials([string(credentialsId: 'dockerpassword', variable: 'dockerpassword')]) {
+    		sh 'docker login -u hoanglap93@gmail.com -p ${dockerpassword}'
 }
 		sh 'docker push lapnguyen/cicdpractice'
                 }
