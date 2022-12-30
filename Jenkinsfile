@@ -26,6 +26,17 @@ pipeline{
                 }
             }
         }
+   stage('push docker image')
+        {
+            steps{
+                script{
+                	withCredentials([string(credentialsId: 'docker-pass', variable: 'docker-pwd')]) {
+    		sh 'docker login -u hoanglap93@gmail.com -p ${docker-pwd}'
+}
+		sh 'docker push lapnguyen/cicdpractice'
+                }
+            }
+        }
 
     }
     
